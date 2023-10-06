@@ -182,7 +182,13 @@ terrestres.';
 select * from missaohistoria;
 
 insert into competencia(descricao)values('A habilidade emprega o verbo "bloom" para realizar uma missão; você pode utilizar a tabela "bloom" a seu favor para executá-la.');
+insert into competencia(descricao)values('A habilidade emprega o verbo "bloom" para realizar uma missão; você pode utilizar a tabela "bloom" a seu favor para executá-la.');
+insert into competencia(descricao)values('A habilidade emprega o verbo "bloom" para realizar uma missão; você pode utilizar a tabela "bloom" a seu favor para executá-la.');
 delete from competencia where id >1;
+
+update competencia set fk_verbo_id = 1 where id = 1;
+update competencia set fk_verbo_id = 2 where id = 3;
+update competencia set fk_verbo_id = 3 where id = 2;
 
 select * from competencia;
 
@@ -200,6 +206,19 @@ insert into etapa(instrucao,ponto,tipo)values
 
 select * from etapa;
 
+update etapa set fk_verbo_id = 36 where id = 1;
+update etapa set fk_verbo_id = 10 where id = 2;
+update etapa set fk_verbo_id = 17 where id = 3;
+update etapa set fk_verbo_id = 30 where id = 4;
+update etapa set fk_verbo_id = 31 where id = 5;
+update etapa set fk_verbo_id = 40 where id = 6;
+update etapa set fk_verbo_id = 26 where id = 7;
+update etapa set fk_verbo_id = 16 where id = 8;
+update etapa set fk_verbo_id = 6 where id = 9;
+update etapa set fk_verbo_id = 3 where id = 10;
+
+desc etapa;
+
 insert into missao(titulo,forca)values('Encontrar Tags',1),
 ('Encontrar “Selectores”',2),
 ('Encontrar “Scripts”',3),
@@ -210,6 +229,8 @@ insert into missao(titulo,forca)values('Encontrar Tags',1),
 ('Encontrar “Functions”',8),
 ('Encontrar “Objects”',9),
 ('Encontrar “Databases”',10);
+
+update competencia set fk_competencia_id  = 1 where id = 1;
 
 select * from missao;insert into verbo(nomeverbo,fk_bloom_id) values('listar',1),('relembrar',1),('reconhcer',1),('identificar',1),('localizar',1),('descrever',1),('citar',1),
 ('esquematizar',2),('relacionar',2),('explicar',2),('demonstrar',2),('parafrasear',2),('associar',2),('converter',2),
@@ -227,3 +248,6 @@ SELECT competencia.descricao, verbo.nomeverbo
 FROM competencia
 INNER JOIN verbo ON competencia.fk_verbo_id = verbo.id;
 
+select * from verbo;
+SELECT * FROM MISSAO;
+delete from verbo where id >42;
